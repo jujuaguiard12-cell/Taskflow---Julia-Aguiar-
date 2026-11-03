@@ -1,0 +1,638 @@
+
+/* =================================
+   CONFIGURAÇÕES GERAIS
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f7fb;
+    color: #25243a;
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =================================
+   MENU LATERAL
+================================= */
+
+.sidebar {
+    width: 250px;
+    background: #fff;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #eeeef3;
+    flex-shrink: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 50px;
+}
+
+.logo h2 {
+    color: #6546d7;
+    font-size: 24px;
+}
+
+.logo-icon {
+    background: #6546d7;
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    display: grid;
+    place-items: center;
+    font-size: 23px;
+}
+
+.menu-title {
+    font-size: 11px;
+    color: #a2a1b2;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #77768a;
+    padding: 14px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: 0.2s;
+    font-size: 14px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: #f0ecff;
+    color: #6546d7;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid #eeeef3;
+    padding-top: 20px;
+}
+
+.avatar {
+    background: #6546d7;
+    color: white;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.profile strong,
+.profile small {
+    display: block;
+}
+
+.profile small {
+    color: #999;
+    margin-top: 4px;
+}
+
+/* =================================
+   CONTEÚDO PRINCIPAL
+================================= */
+
+.main-content {
+    flex: 1;
+    padding: 35px;
+    min-width: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 15px;
+}
+
+.header h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.header p,
+.section-heading p {
+    color: #9291a3;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.header-date {
+    background: white;
+    border: 1px solid #eeeef3;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+}
+
+/* =================================
+   DASHBOARD
+================================= */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    padding: 22px;
+    border-radius: 14px;
+    border: 1px solid #eeeef3;
+}
+
+.stat-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    font-size: 21px;
+    margin-bottom: 18px;
+}
+
+.purple {
+    background: #f0ecff;
+    color: #6546d7;
+}
+
+.orange {
+    background: #fff1e6;
+    color: #f09542;
+}
+
+.blue {
+    background: #e9f2ff;
+    color: #4288dd;
+}
+
+.green {
+    background: #e5f8ef;
+    color: #30a875;
+}
+
+.stat-card p {
+    color: #858497;
+    font-size: 13px;
+}
+
+.stat-card h2 {
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.stat-card small {
+    color: #aaa9b7;
+    font-size: 11px;
+}
+
+/* =================================
+   FORMULÁRIO
+================================= */
+
+.form-section,
+.filters-section {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    border: 1px solid #eeeef3;
+    margin-bottom: 30px;
+}
+
+.section-heading {
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    font-size: 19px;
+    margin-bottom: 7px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 17px;
+    flex: 1;
+}
+
+.form-group label,
+.filter-group label {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.filter-group input,
+.filter-group select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #e5e4ec;
+    border-radius: 8px;
+    outline: none;
+    background: #fff;
+    color: #333;
+    font-size: 13px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.filter-group input:focus,
+.filter-group select:focus {
+    border-color: #6546d7;
+}
+
+.form-row {
+    display: flex;
+    gap: 18px;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.add-button,
+.cancel-button,
+.clear-button {
+    border: none;
+    border-radius: 9px;
+    padding: 13px 22px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.add-button {
+    background: #6546d7;
+    color: white;
+}
+
+.add-button:hover {
+    background: #5133bf;
+}
+
+.cancel-button {
+    background: #eeeef3;
+    color: #555;
+}
+
+.cancel-button:hover {
+    background: #e1e0e9;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* =================================
+   PESQUISA E FILTROS
+================================= */
+
+.filters-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    align-items: end;
+    gap: 13px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+}
+
+.filter-group input,
+.filter-group select {
+    height: 43px;
+}
+
+.clear-button {
+    background: #f0ecff;
+    color: #6546d7;
+    height: 43px;
+    padding: 0 16px;
+}
+
+.clear-button:hover {
+    background: #e2dafe;
+}
+
+.filter-result {
+    margin-top: 15px;
+    color: #9291a3;
+    font-size: 12px;
+}
+
+/* =================================
+   QUADRO KANBAN
+================================= */
+
+.kanban-section {
+    margin-bottom: 35px;
+}
+
+.kanban-board {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    align-items: start;
+}
+
+.kanban-column {
+    background: #eeedf4;
+    padding: 15px;
+    border-radius: 13px;
+    min-height: 250px;
+}
+
+.column-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 17px;
+    gap: 5px;
+}
+
+.column-header h3 {
+    font-size: 13px;
+}
+
+.count {
+    background: white;
+    padding: 5px 10px;
+    border-radius: 7px;
+    color: #777;
+    font-size: 12px;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* =================================
+   CARTÕES DE TAREFAS
+================================= */
+
+.task-card {
+    background: white;
+    border-radius: 11px;
+    padding: 17px;
+    border: 1px solid #eae9f0;
+    transition: 0.2s;
+    min-width: 0;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px #0000000a;
+}
+
+.task-card h4 {
+    font-size: 14px;
+    margin: 13px 0 8px;
+    overflow-wrap: anywhere;
+}
+
+.task-card p {
+    font-size: 12px;
+    color: #9291a3;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.priority {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.high {
+    background: #ffe9e9;
+    color: #e05b5b;
+}
+
+.medium {
+    background: #fff2dd;
+    color: #d99532;
+}
+
+.low {
+    background: #e3f7ec;
+    color: #34a875;
+}
+
+.task-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 17px;
+    color: #999;
+    font-size: 12px;
+}
+
+.completed {
+    opacity: 0.85;
+}
+
+/* =================================
+   BOTÕES DOS CARTÕES
+================================= */
+
+.task-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.task-actions button {
+    flex: 1;
+    padding: 9px 5px;
+    border: none;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.edit-button {
+    background: #f0ecff;
+    color: #6546d7;
+}
+
+.edit-button:hover {
+    background: #e2dafe;
+}
+
+.delete-button {
+    background: #ffeaea;
+    color: #df5555;
+}
+
+.delete-button:hover {
+    background: #ffd6d6;
+}
+
+.status-select {
+    width: 100%;
+    margin-top: 10px;
+    padding: 9px;
+    border: 1px solid #e5e4ec;
+    border-radius: 7px;
+    background: white;
+    color: #555;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.status-select:focus {
+    outline: none;
+    border-color: #6546d7;
+}
+
+/* =================================
+   MENSAGENS
+================================= */
+
+.empty-message {
+    color: #999;
+    text-align: center;
+    font-size: 12px;
+    padding: 25px 8px;
+    line-height: 1.5;
+}
+
+/* =================================
+   RODAPÉ
+================================= */
+
+footer {
+    text-align: center;
+    color: #aaa9b7;
+    font-size: 12px;
+    padding: 20px;
+}
+
+/* =================================
+   RESPONSIVIDADE
+================================= */
+
+@media (max-width: 1100px) {
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .kanban-board {
+        grid-template-columns: 1fr;
+    }
+
+    .filters-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .app {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .logo {
+        margin-bottom: 20px;
+    }
+
+    .sidebar-bottom {
+        display: none;
+    }
+
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .nav-link {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .main-content {
+        padding: 18px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .filters-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 380px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TaskFlow - Gerenciador de tarefas pessoais">
+    <title>TaskFlow | Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span class="logo-icon">✓</span>
+            <h2>TaskFlow</h2>
+        </div>
+
+        <p class="menu-title">MENU PRINCIPAL</p>
+
+        <nav>
+            <a href="#dashboard" class="nav-link active">▦ Dashboard</a>
+            <a href="#tarefas" class="nav-link">☑ Minhas tarefas</a>
+            <a href="#kanban" class="nav-link">▤ Quadro Kanban</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="profile">
+                <div class="avatar">U</div>
+                <div>
+                    <strong>Usuário</strong>
+                    <small>Minha conta</small>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+
+        <header class="header">
+            <div>
+                <h1>Dashboard</h1>
+                <p>Organize suas tarefas e acompanhe sua produtividade.</p>
+            </div>
+
+            <div class="header-date">
+                📅 Meu espaço de trabalho
+            </div>
+        </header>
+
+        <!-- INDICADORES -->
+        <section id="dashboard" class="dashboard">
+
+            <div class="stat-card">
+                <div class="stat-icon purple">▤</div>
+                <p>Total de tarefas</p>
+                <h2 id="total-tasks">0</h2>
+                <small>Todas as atividades</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orange">◷</div>
+                <p>Pendentes</p>
+                <h2 id="pending-tasks">0</h2>
+                <small>Aguardando início</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon blue">↻</div>
+                <p>Em andamento</p>
+                <h2 id="progress-tasks">0</h2>
+                <small>Atividades em execução</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">✓</div>
+                <p>Concluídas</p>
+                <h2 id="completed-tasks">0</h2>
+                <small>Atividades finalizadas</small>
+            </div>
+
+        </section>
+
+        <!-- FORMULÁRIO -->
+        <section id="tarefas" class="form-section">
+
+            <div class="section-heading">
+                <h2 id="form-heading">Nova tarefa</h2>
+                <p>Adicione uma nova atividade à sua rotina.</p>
+            </div>
+
+            <form id="task-form">
+
+                <div class="form-group">
+                    <label for="title">Título da tarefa</label>
+                    <input
+                        type="text"
+                        id="title"
+                        placeholder="Ex: Estudar JavaScript"
+                        maxlength="80"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Descrição</label>
+                    <input
+                        type="text"
+                        id="description"
+                        placeholder="Descreva sua atividade..."
+                        maxlength="200"
+                    >
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="priority">Prioridade</label>
+                        <select id="priority">
+                            <option value="baixa">Baixa</option>
+                            <option value="media" selected>Média</option>
+                            <option value="alta">Alta</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="deadline">Prazo</label>
+                        <input type="date" id="deadline">
+                    </div>
+
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" class="add-button" id="submit-button">
+                        + Adicionar tarefa
+                    </button>
+
+                    <button type="button" class="cancel-button" id="cancel-edit" hidden>
+                        Cancelar edição
+                    </button>
+                </div>
+
+            </form>
+
+        </section>
+
+        <!-- PESQUISA E FILTROS -->
+        <section class="filters-section">
+
+            <div class="section-heading">
+                <h2>Pesquisar e filtrar</h2>
+                <p>Encontre suas tarefas rapidamente.</p>
+            </div>
+
+            <div class="filters-container">
+
+                <div class="filter-group search-group">
+                    <label for="search">Pesquisar tarefa</label>
+                    <input
+                        type="search"
+                        id="search"
+                        placeholder="Digite o título da tarefa..."
+                    >
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-priority">Prioridade</label>
+                    <select id="filter-priority">
+                        <option value="">Todas</option>
+                        <option value="baixa">Baixa</option>
+                        <option value="media">Média</option>
+                        <option value="alta">Alta</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-status">Status</label>
+                    <select id="filter-status">
+                        <option value="">Todos</option>
+                        <option value="pendente">A Fazer</option>
+                        <option value="andamento">Em Andamento</option>
+                        <option value="concluida">Concluídas</option>
+                    </select>
+                </div>
+
+                <button type="button" id="clear-filters" class="clear-button">
+                    Limpar filtros
+                </button>
+
+            </div>
+
+            <p id="filter-result" class="filter-result"></p>
+
+        </section>
+
+        <!-- QUADRO KANBAN -->
+        <section id="kanban" class="kanban-section">
+
+            <div class="section-heading">
+                <h2>Quadro de tarefas</h2>
+                <p>Acompanhe o andamento das suas atividades.</p>
+            </div>
+
+            <div class="kanban-board">
+
+                <div class="kanban-column">
+                    <div class="column-header">
+                        <h3>○ A Fazer</h3>
+                        <span class="count" id="count-pending">0</span>
+                    </div>
+                    <div id="pending-list" class="task-list"></div>
+                </div>
+
+                <div class="kanban-column">
+                    <div class="column-header">
+                        <h3>◷ Em Andamento</h3>
+                        <span class="count" id="count-progress">0</span>
+                    </div>
+                    <div id="progress-list" class="task-list"></div>
+                </div>
+
+                <div class="kanban-column">
+                    <div class="column-header">
+                        <h3>✓ Concluídas</h3>
+                        <span class="count" id="count-completed">0</span>
+                    </div>
+                    <div id="completed-list" class="task-list"></div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer>
+            <p>© 2026 TaskFlow - Organize suas tarefas com facilidade.</p>
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
